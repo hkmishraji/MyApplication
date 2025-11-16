@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Edge Detection Viewer</title>
+    <style>
+        body { display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
+        #frame { max-width: 90%; border: 1px solid #ccc; margin-top: 20px; }
+        #stats { margin-top: 10px; font-size: 14px; }
+    </style>
+</head>
+<body>
+<h2>Live Edge Detection Viewer</h2>
+<img id="frame" alt="Processed Frame">
+<div id="stats">FPS: -- | Resolution: --</div>
+
+<script>
+    function updateFrame(base64Frame, fps, width, height) {
+        const frame = document.getElementById("frame");
+        const stats = document.getElementById("stats");
+        frame.src = base64Frame;
+        stats.textContent = `FPS: ${fps} | Resolution: ${width}x${height}`;
+    }
+</script>
+</body>
+</html>
